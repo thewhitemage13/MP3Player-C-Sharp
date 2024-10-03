@@ -10,9 +10,7 @@ namespace Spotify.Entity
         private List<MusicCollection> musicCollection = new List<MusicCollection>();
         private List<Song> songs = new List<Song>();
 
-        public Performer()
-        {
-        }
+        public Performer() { }
 
         public Performer(string name, Genre genre)
         {

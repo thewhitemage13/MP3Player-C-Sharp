@@ -1,4 +1,5 @@
-﻿using Spotify.ConsoleOperations;
+﻿using Spotify.ConsoleMenu;
+using Spotify.ConsoleOperations;
 
 namespace Spotify
 {
@@ -6,8 +7,8 @@ namespace Spotify
     {
         static void Main(string[] args)
         {
-            AddPerformer performer = new AddPerformer();
-            performer.AddPerformerOperation();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Menu();
         }
     }
 }

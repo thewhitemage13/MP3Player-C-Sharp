@@ -3,7 +3,7 @@ using Spotify.Enums;
 
 namespace Spotify.ConsoleOperations
 {
-    internal class AddPerformer
+    public class AddPerformer
     {
         public void AddPerformerOperation() 
         {

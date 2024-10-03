@@ -47,6 +47,7 @@ namespace Spotify.ConsoleOperations
             }
 
             Console.Write("Add songs: ");
+            AddSongsToAlbum(musicCollection);
 
         }
 
