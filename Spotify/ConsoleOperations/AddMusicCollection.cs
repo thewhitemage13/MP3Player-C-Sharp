@@ -12,11 +12,11 @@ namespace Spotify.ConsoleOperations
 
             Console.Write("Enter Muisc Collection name: ");
             string name = Console.ReadLine();
-            musicCollection.SetName(name);
+            musicCollection.Name = name;
 
             Console.Write("Enter Performer Id: ");
             long performerId = Convert.ToInt32(Console.ReadLine());
-            musicCollection.SetPerformerId(performerId);
+            //musicCollection.Performer; (performerId);
 
             Console.WriteLine("All Type Of Collection: ");
 
@@ -29,7 +29,7 @@ namespace Spotify.ConsoleOperations
 
             string input1 = Console.ReadLine();
             TypeOfCollection selectedGenre = (TypeOfCollection)Enum.Parse(typeof(TypeOfCollection), input1, ignoreCase: true);
-            musicCollection.SetTypeOfSongCollection(selectedGenre);
+            musicCollection.TypeOfCollection = selectedGenre;
 
 
             Console.Write("Enter a date (e.g., 01/31/2024): ");
@@ -39,7 +39,7 @@ namespace Spotify.ConsoleOperations
             {
                 DateTime dateOnly = dateTime.Date;
                 Console.WriteLine($"You entered: {dateOnly.ToShortDateString()}");
-                musicCollection.SetRealeaseDate(dateOnly);
+                musicCollection.ReleaseDate = dateOnly;
             }
             else
             {

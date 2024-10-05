@@ -1,86 +1,37 @@
 ﻿using Spotify.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Spotify.Entity
 {
     internal class Performer
     {
-        private long performerId;
-        private string name;
-        private Genre genre;
-        private List<MusicCollection> musicCollection = new List<MusicCollection>();
-        private List<Song> songs = new List<Song>();
+        [Key]
+        public long PerformerId { get; set; }
+        public string Name { get; set; }
+        public Genre Genre { get; set; }
+        [Required]
+        public List<MusicCollection> MusicCollection {  get; set; }
+        [Required]
+        public List<Song> Songs { get; set; }
 
         public Performer() { }
 
         public Performer(string name, Genre genre)
         {
-            this.name = name;
-            this.genre = genre;
+            Name = name;
+            Genre = genre;
+            MusicCollection = new List<MusicCollection>();
+            Songs = new List<Song>();
         }
 
-        public long GetPerformerId()
+        public void AddMusicCollection(MusicCollection musicCollection)
         {
-            return performerId;
-        }
-
-        public void SetPerformerId(long performerId)
-        {
-            this.performerId = performerId;
-        }
-
-        public List<Song> GetSongs() 
-        {
-            return songs;
+            MusicCollection.Add(musicCollection);
         }
 
         public void AddSong(Song song)
         {
-            this.songs.Add(song);
-        }
-
-        public List<MusicCollection> GetMusicCollections() 
-        {
-            return musicCollection;
-        }
-
-        public void AddMusicCollection(MusicCollection musicCollection) 
-        {
-            this.musicCollection.Add(musicCollection);
-        }
-
-        public Genre GetGenre() 
-        { 
-            return genre; 
-        }
-
-        public void SetGenre(Genre genre)
-        {
-            this.genre = genre;
-        }
-
-        public string GetName() 
-        { 
-            return name; 
-        }
-
-        public void SetName(string name)
-        { 
-            this.name = name; 
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return $"Performer: {name}, Genre: {genre}, Songs Count: {songs.Count}, Music Collections Count: {musicCollection.Count}";
+            Songs.Add(song);
         }
     }
 }

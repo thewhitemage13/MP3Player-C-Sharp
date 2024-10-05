@@ -16,15 +16,15 @@ namespace Spotify.ConsoleOperations
             
             Console.Write("Enter Radio Name: ");
             string radioName = Console.ReadLine();
-            radio.SetCity(radioName);
+            radio.City = radioName;
 
             Console.Write("Enter City: ");
             string city = Console.ReadLine();
-            radio.SetCity(city);
+            radio.City = city;
 
             Console.Write("Radio Url: ");
             string radioUrl = Console.ReadLine();
-            radio.SetRadioUrl(radioUrl);
+            radio.RadioUrl = radioUrl;
         }
     }
 }

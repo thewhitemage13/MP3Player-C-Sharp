@@ -10,7 +10,7 @@ namespace Spotify.ConsoleOperations
             Performer performer = new Performer();
             Console.Write("Enter performer name: ");
             string name = Console.ReadLine();
-            performer.SetName(name);
+            performer.Name = name;
 
             Console.WriteLine("All genres: ");
 
@@ -23,7 +23,7 @@ namespace Spotify.ConsoleOperations
 
             string input = Console.ReadLine();
             Genre selectedGenre = (Genre)Enum.Parse(typeof(Genre), input, ignoreCase: true);
-            performer.SetGenre(selectedGenre);
+            performer.Genre =selectedGenre;
 
             Console.WriteLine(performer);
 
