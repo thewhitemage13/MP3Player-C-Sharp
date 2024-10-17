@@ -7,7 +7,7 @@ namespace Spotify.ConsoleMenu
     /// <summary>
     /// Represents the menu interface for controlling a music player in a console application.
     /// </summary>
-    public class PlayerMenu
+    public class PlayerMenu : IMenu
     {
         private bool operation = true;
         /// <summary>

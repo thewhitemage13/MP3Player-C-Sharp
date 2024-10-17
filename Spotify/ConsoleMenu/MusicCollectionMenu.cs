@@ -7,17 +7,17 @@ namespace Spotify.ConsoleMenu
     /// <summary>
     /// Represents the menu interface for managing a music collection in a console application.
     /// </summary>
-    public class MusicCollectionMenu
+    public class MusicCollectionMenu : IMenu
     {
         private bool operation = true;
         /// <summary>
-        /// Displays the main options for managing the music collection and processes user input.
+        /// Displays the menu options for managing the music collection and processes user input.
         /// </summary>
         /// <remarks>
         /// This method runs in a loop until the user chooses to exit.
         /// It provides options to add, update, delete, and list music collections.
         /// </remarks>
-        public void Main()
+        public void Menu()
         {
             using (var unitOfWork = new UnitOfWork(new Context()))
             {

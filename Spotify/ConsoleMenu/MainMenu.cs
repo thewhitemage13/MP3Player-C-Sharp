@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the main menu interface of a console application for managing a music collection.
     /// </summary>
-    public class MainMenu
+    public class MainMenu : IMenu
     {
         private MusicCollectionMenu muicCollectionMenu = new MusicCollectionMenu();
         private PerformerMenu performerMenu = new PerformerMenu();
@@ -42,7 +42,7 @@
                 switch (choice)
                 {
                     case 1:
-                        muicCollectionMenu.Main();
+                        muicCollectionMenu.Menu();
                         break;
                     case 2:
                         performerMenu.Menu();

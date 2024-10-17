@@ -80,9 +80,6 @@ namespace Spotify.Players
                 Console.WriteLine(ex.Message);
             }
         }
-
-
-
         public void PlayMusicCollection()
         {
             Console.Write("Enter Music Collection Id: ");
