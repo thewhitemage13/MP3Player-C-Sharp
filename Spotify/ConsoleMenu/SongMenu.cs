@@ -66,6 +66,8 @@ namespace Spotify.ConsoleMenu
                             break;
                     }
                 }
+
+                Console.WriteLine();
             }
         }
     }

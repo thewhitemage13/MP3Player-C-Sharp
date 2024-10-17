@@ -66,6 +66,8 @@ namespace Spotify.ConsoleMenu
                             Console.WriteLine("Invalid choice. Please try again.");
                             break;
                     }
+
+                    Console.WriteLine();
                 }
             }
         }
