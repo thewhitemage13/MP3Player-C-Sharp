@@ -5,13 +5,20 @@
     /// </summary>
     public class MainMenu : IMenu
     {
-        private MusicCollectionMenu muicCollectionMenu = new MusicCollectionMenu();
-        private PerformerMenu performerMenu = new PerformerMenu();
-        private RadioMenu radioMenu = new RadioMenu();
-        private SongMenu songMenu = new SongMenu();
-        private PlayerMenu playerMenu = new PlayerMenu();
+        private MusicCollectionMenu muicCollectionMenu;
+        private PerformerMenu performerMenu;
+        private RadioMenu radioMenu;
+        private SongMenu songMenu;
+        private PlayerMenu playerMenu;
         private bool operation = true;
-
+        public MainMenu()
+        {
+            muicCollectionMenu = new MusicCollectionMenu();
+            performerMenu = new PerformerMenu();
+            radioMenu = new RadioMenu();
+            songMenu = new SongMenu();
+            playerMenu = new PlayerMenu();
+        }
         /// <summary>
         /// Displays the main menu options to the user and handles their input to navigate to different sub-menus or exit the application.
         /// </summary>
