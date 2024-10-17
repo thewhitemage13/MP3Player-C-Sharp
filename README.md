@@ -4,21 +4,36 @@
 Develop a console application that allows users to manage a collection of songs, albums, and artists. The application includes classes for representing songs, albums, artists, and genres, as well as interfaces for playing and managing the collection. Users can add, delete, and play songs, as well as view information about songs, albums, and artists.
 
 ## Functionality
-The project includes the following capabilities:
 
-- Add artists   - Update artist
-- Add songs     - Update songs
-- Add albums    - Update albums
-- Add radio     - Update radio
+### Manage Artists
+- Add artists
+- Update artists
+- Show artists
+- Delete artists
 
-- Show artist   - Delete artist
-- Show songs    - Delete songs
-- Show albums   - Delete albums
-- Show radio    - Delete radio
+### Manage Songs
+- Add songs
+- Update songs
+- Show songs
+- Delete songs
 
+### Manage Albums
+- Add albums
+- Update albums
+- Show albums
+- Delete albums
+
+### Manage Radio
+- Add radio
+- Update radio
+- Show radio
+- Delete radio
+
+### Playback
 - Play songs
 - Play albums
 - Play radio
+
 
 ## Technologies
 
