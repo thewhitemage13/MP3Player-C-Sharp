@@ -59,6 +59,9 @@
                     case 6:
                         operation = false;
                         break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
                 }
             }
         }

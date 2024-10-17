@@ -54,6 +54,9 @@ namespace Spotify.ConsoleMenu
                         case 4:
                             operation = false;
                             break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please try again.");
+                            break;
                     }
                 }
 

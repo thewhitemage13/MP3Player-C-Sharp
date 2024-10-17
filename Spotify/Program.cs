@@ -8,11 +8,6 @@ namespace Spotify
         {
             MainMenu mainMenu = new MainMenu();
             mainMenu.Menu();
-            //using (var context = new Context())
-            //{
-
-            //}
-
         }
     }
 }
