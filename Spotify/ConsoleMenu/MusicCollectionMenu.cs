@@ -1,47 +1,70 @@
-﻿using Spotify.Managers;
+﻿using Spotify.DataBase;
+using Spotify.Operations;
+using Spotify.Services;
 
 namespace Spotify.ConsoleMenu
 {
-    internal class MusicCollectionMenu
+    /// <summary>
+    /// Represents the menu interface for managing a music collection in a console application.
+    /// </summary>
+    public class MusicCollectionMenu
     {
-        private MusicCollectionManager musicCollectionManager = new MusicCollectionManager();
         private bool operation = true;
-
+        /// <summary>
+        /// Displays the main options for managing the music collection and processes user input.
+        /// </summary>
+        /// <remarks>
+        /// This method runs in a loop until the user chooses to exit.
+        /// It provides options to add, update, delete, and list music collections.
+        /// </remarks>
         public void Main()
         {
-            Console.WriteLine("Music Collection Menu");
-
-            while (operation)
+            using (var unitOfWork = new UnitOfWork(new Context()))
             {
-                Console.WriteLine("1) -> Add Music Collection <- ");
-                Console.WriteLine("2) -> Update Music Collcetion <- ");
-                Console.WriteLine("3) -> Delete Music Collection <- ");
-                Console.WriteLine("4) -> Print Music Collcetion <- ");
-                Console.WriteLine("5) -> Exit <- ");
+                var musicCollectionService = new MusicCollectionService(unitOfWork.MusicCollections);
+                var songService = new SongService(unitOfWork.Songs);
+                var performerService = new PerformerService(unitOfWork.Performers);
+                var musicCollectionConsoleOperations = new MusicCollectionConsoleOperations(musicCollectionService, songService, performerService);
 
-                Console.Write("Enter Your Choice: ");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
-                switch (choice)
+                Console.WriteLine("Music Collection Menu");
+
+                while (operation)
                 {
-                    case 1:
-                        musicCollectionManager.add();
-                        break;
-                    case 2:
-                        musicCollectionManager.update();
-                        break;
-                    case 3:
-                        musicCollectionManager.delete();
-                        break;
-                    case 4:
-                        musicCollectionManager.print();
-                        break;
-                    case 5:
-                        operation = false;
-                        break;
+                    Console.WriteLine("1) -> Add Music Collection <- ");
+                    Console.WriteLine("2) -> Update Music Collcetion <- ");
+                    Console.WriteLine("3) -> Delete Music Collection <- ");
+                    Console.WriteLine("4) -> Print All Music Collcetions <- ");
+                    Console.WriteLine("5) -> Print Music Collcetion By Id <- ");
+                    Console.WriteLine("6) -> Exit <- ");
+
+                    Console.Write("Enter Your Choice: ");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            musicCollectionConsoleOperations.AddMusicCollectionOperation();
+                            break;
+                        case 2:
+                            musicCollectionConsoleOperations.UpdateMusicCollectionOperation();
+                            break;
+                        case 3:
+                            musicCollectionConsoleOperations.DeleteMusicCollectionOperation();
+                            break;
+                        case 4:
+                            musicCollectionConsoleOperations.ListAllMusicCollectionsOperation();
+                            break;
+                        case 5:
+                            musicCollectionConsoleOperations.GetMusicCollectionByIdOperation();
+                            break;
+                        case 6:
+                            operation = false;
+                            break;
+                    }
                 }
             }
-
         }
     }
 }

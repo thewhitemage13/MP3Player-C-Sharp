@@ -1,44 +1,66 @@
-﻿using Spotify.Managers;
+﻿using Spotify.DataBase;
+using Spotify.Operations;
+using Spotify.Services;
 
 namespace Spotify.ConsoleMenu
 {
-    internal class PerformerMenu
+    /// <summary>
+    /// Represents the menu interface for managing performers in a console application.
+    /// </summary>
+    public class PerformerMenu
     {
-        private PerformerManager performerManager = new PerformerManager();
         private bool operation = true;
-
+        /// <summary>
+        /// Displays the menu options for managing performers and processes user input.
+        /// </summary>
+        /// <remarks>
+        /// This method runs in a loop until the user chooses to exit.
+        /// It provides options to add, delete, update, and list performers.
+        /// </remarks>
         public void Menu()
         {
-            Console.WriteLine("Performer Menu");
-
-            while (operation)
+            using (var unitOfWork = new UnitOfWork(new Context()))
             {
-                Console.WriteLine("1) -> Add Performer <- ");
-                Console.WriteLine("2) -> Delete Performer <- ");
-                Console.WriteLine("3) -> Update Performer <- ");
-                Console.WriteLine("4) -> Print Performer <- ");
-                Console.WriteLine("5) -> Exit <- ");
+                var performerService = new PerformerService(unitOfWork.Performers);
+                var performerConsoleOperations = new PerformerConsoleOperations(performerService);
 
-                Console.Write("Enter Your Choice: ");
-                int choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
 
-                switch (choice)
+                Console.WriteLine("Performer Menu");
+
+                while (operation)
                 {
-                    case 1:
-                        performerManager.add();
-                        break;
-                    case 2:
-                        performerManager.delete();
-                        break;
-                    case 3:
-                        performerManager.update();
-                        break;
-                    case 4:
-                        performerManager.print();
-                        break;
-                    case 5:
-                        operation = false;
-                        break;
+                    Console.WriteLine("1) -> Add Performer <- ");
+                    Console.WriteLine("2) -> Delete Performer <- ");
+                    Console.WriteLine("3) -> Update Performer <- ");
+                    Console.WriteLine("4) -> Print All Performers <- ");
+                    Console.WriteLine("5) -> Print Performer By Id <- ");
+                    Console.WriteLine("6) -> Exit <- ");
+
+                    Console.Write("Enter Your Choice: ");
+                    int choice = Convert.ToInt32(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            performerConsoleOperations.AddPerformerOperation();
+                            break;
+                        case 2:
+                            performerConsoleOperations.DeletePerformerOperation();
+                            break;
+                        case 3:
+                            performerConsoleOperations.UpdatePerformerOperation();
+                            break;
+                        case 4:
+                            performerConsoleOperations.ListAllSongsOperation();
+                            break;
+                        case 5:
+                            performerConsoleOperations.GetPerformerByIdOperation();
+                            break;
+                        case 6:
+                            operation = false;
+                            break;
+                    }
                 }
             }
         }

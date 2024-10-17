@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Spotify.Enums
+﻿namespace Spotify.Enums
 {
-    internal enum Genre
+    /// <summary>
+    /// Represents the different genres of music in the Spotify application.
+    /// </summary>
+    public enum Genre
     {
         Classical, 
         Jazz, 

@@ -1,5 +1,4 @@
 ﻿using Spotify.ConsoleMenu;
-using Spotify.DataBase;
 
 namespace Spotify
 {
@@ -7,12 +6,13 @@ namespace Spotify
     {
         static void Main(string[] args)
         {
-            //MainMenu mainMenu = new MainMenu();
-            //mainMenu.Menu();
-            using (var context = new Context())
-            {
-                
-            }
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.Menu();
+            //using (var context = new Context())
+            //{
+
+            //}
+
         }
     }
 }
