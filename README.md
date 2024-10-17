@@ -6,22 +6,16 @@ Develop a console application that allows users to manage a collection of songs,
 ## Functionality
 The project includes the following capabilities:
 
-- Add artists
-- Add songs
-- Add albums
-- Add radio
-- Update artist
-- Update songs
-- Update albums
-- Update radio
-- Show artist
-- Show songs
-- Show albums
-- Show radio
-- Delete artist
-- Delete songs
-- Delete albums
-- Delete radio
+- Add artists   - Update artist
+- Add songs     - Update songs
+- Add albums    - Update albums
+- Add radio     - Update radio
+
+- Show artist   - Delete artist
+- Show songs    - Delete songs
+- Show albums   - Delete albums
+- Show radio    - Delete radio
+
 - Play songs
 - Play albums
 - Play radio
